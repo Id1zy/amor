@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #ff758c;
+        }
+        .media {
+            margin: 20px 0;
+        }
+        .media img, .media video {
+            max-width: 20%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .letter {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ff758c;
+            border-radius: 10px;
+            background: #ffe4e1;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ff758c;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            resize: none; /* Evita que el usuario pueda cambiar el tamaño */
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #ff758c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff7eb3;
+        }
+        
+        /* Estilos para el modal */
+        .modal {
+            display: none; /* Inicialmente oculto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Fondo oscuro */
+        }
+        
+        .modal-content {
+            background-color: #ffe4e1;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #ff758c;
+            border-radius: 10px;
+            width: 70%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal h2 {
+            color: #ff758c;
+        }
+        
+        .modal p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Para ti...</h1>
+        <p>No se como explicar lo que siento con palabras, eres una mujer genial que quiero amar para toda la vida, gracias por todo...</p>
+
+        <div class="media">
+            <h2>Imágenes</h2>
+            <img src="foto1.jpg" alt="Imagen con tu novia">
+            <img src="foto2.jpg" alt="Imagen con tu novia">
+            <img src="foto3.jpg" alt="Imagen con tu novia">
+            <img src="foto4.jpg" alt="Imagen con tu novia">
+        </div>
+
+        <div class="media">
+            <h2>Videos</h2>
+            <video controls>
+                <source src="IMG_5542.MOV" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+
+        <div class="letter">
+            <h2>Cartita</h2>
+            <textarea id="love-letter" rows="10" readonly>Quiero decir que todo este tiempo he entendido que amar no es solo entregar cariño, es entregar paciencia, entendimiento, empatia, no es solo entregar cariño y ya, me he dado cuenta que amar es estar para la otra persona en todo momento, apoyarse, ayudarse, comunicarse, no lo habia entendido hasta hace poco..., te juro que no habia pensado tanto en esto, me impresiona que me haya dado cuenta de todo esto, porque realmente me doy cuenta del inmenso amor que siento hacia ti, eres todo lo que quise y lo que siempre soñé. Eres como una de esas diosas que pocas veces aparecen en la vida de uno y que quiero cuidar con todo mi corazón, yo no estoy aqui para hacerte daño, todo lo contrario, estoy para hacerte feliz, para hacerte llorar de alegría, para apoyarte, ayudarte en todo lo que necesites, porque no miento al decir que te amo, no miento al decir que eres el amor de mi vida y lo que quiero para toda la vida, te amo demasiado.. y quiero alimentar este amor que siento por ti. </textarea>
+            <button onclick="mostrarModal()">Apretame</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2>Mensajito para ti.</h2>
+            <p>Eres la luz de mi vida, el sueño que siempre quise alcanzar, y mi mayor alegría. Te amo con todo mi corazón.</p>
+        </div>
+    </div>
+
+    <script>
+        function mostrarModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+        
+        function cerrarModal() {
+            const modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login de Amor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .login-container {
+            background: white;
+            padding: 50px 30px 30px; /* Añadido padding superior extra */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 300px; /* Ancho fijo */
+        }
+        .login-container h2 {
+            color: #ff758c;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        input[type="password"], button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ff758c;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #ff758c;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff7eb3;
+        }
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 45px;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 50px;
+            height: 75px;
+            border-radius: 50px 50px 0 0;
+            background: #ff758c;
+        }
+        .heart::before {
+            left: 25px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .heart::after {
+            left: -25px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1) translateX(-50%);
+            }
+            50% {
+                transform: scale(1.2) translateX(-50%);
+            }
+        }
+        .heart {
+            animation: heartbeat 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="heart"></div>
+        <h2>Login</h2>
+        <input type="password" id="password" placeholder="Adivina la contraseña...">
+        <button onclick="checkPassword()">Ingresar</button>
+        <p id="error-message"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const correctPassword = "amordemivida"; // Cambia esto a la contraseña que desees
+            const passwordInput = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (passwordInput === correctPassword) {
+                window.location.href = "dashboard.html"; // Redirige a la página de dashboard
+            } else {
+                errorMessage.textContent = "Contraseña incorrecta. Inténtalo de nuevo.";
+            }
+        }
+    </script>
+</body>
+</html>
